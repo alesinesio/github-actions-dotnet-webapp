@@ -1,0 +1,19 @@
+name: Executar em push e a cada hora
+
+on:
+  push:
+  schedule:
+    - cron: '0 * * * *'  # A cada hora (em UTC)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: checkout do código
+        uses: actions/setup-dotnet@v3
+
+      - name: Rodar testes
+        run: echo "Executando o workflow"
